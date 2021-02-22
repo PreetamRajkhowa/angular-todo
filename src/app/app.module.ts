@@ -2,13 +2,26 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomecomponentComponent } from './homecomponent/homecomponent.component';
+import { ListComponent } from './list/list.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomecomponentComponent,
+    ListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'todo')
   ],
   providers: [],
   bootstrap: [AppComponent]
