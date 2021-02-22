@@ -1,17 +1,16 @@
 <div class="container">
-  <div class="well">
+  <br/>
+  <div class="card card-body bg-light">
     <form>
-      <div class="form-control">
-        <label>Todo Name</label>
-        <input type="text" name="name"/>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Todo Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="emailHelp" placeholder="Enter Todo Name">
       </div>
-      <div class="form-control">
-        <label>Status</label>
-        <input type="text" name="status"/>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Status</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Status">
       </div>
-      <div class="form-control">
-        <button type="submit" name="submit"></button>
-      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </div>
