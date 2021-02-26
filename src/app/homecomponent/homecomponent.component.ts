@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ModuleWithComponentFactories, OnInit } from '@angular/core';
+import { Todo } from './../core/models/Todo.model';
+
 
 @Component({
   selector: 'app-homecomponent',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomecomponentComponent implements OnInit {
 
-  constructor() { }
+  todolist: Todo;
+  todoId:number=Math.random();
+  todoName:string;
+  status:number;
+
+  constructor() {
+    this.todolist=new Todo(this.todoId,this.todoName,this.status);
+  }
 
   ngOnInit(): void {
+
+  }
+
+  onTodoFormSubmit(){
+    console.log(this.todolist);
   }
 
 }
