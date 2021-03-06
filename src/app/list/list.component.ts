@@ -10,18 +10,20 @@ import { Component, OnInit } from '@angular/core';
 export class ListComponent implements OnInit {
 
  todoList:any;
+ isLoading:boolean;
 
   constructor(private Todoservice: TodoserviceService) {
     this.getToDoList();
    }
 
   ngOnInit(): void {
-
+    this.isLoading=true;
   }
 
   getToDoList(){
     this.Todoservice.getToDolist().subscribe(
       (data)=>{
+        this.isLoading=false;
         this.todoList=data;
       }
     );
