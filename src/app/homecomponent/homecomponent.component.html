@@ -4,24 +4,33 @@
     <p *ngIf="successMessage">{{successMessage}}</p>
   </div>
   <div class="card card-body bg-light">
-    <form (ngSubmit)="onTodoFormSubmit()">
+    <form name="form" #ff="ngForm" (ngSubmit)="onTodoFormSubmit()" novalidate>
       <div class="form-group">
         <label for="exampleInputEmail1">User ID</label>
-        <input type="text" class="form-control" id="userid" [(ngModel)]="todolist.userid" aria-describedby="emailHelp"
-          placeholder="Enter User ID" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control" name="userid" id="userid" [(ngModel)]="todolist.userid" aria-describedby="emailHelp"
+          placeholder="Enter User ID" #userid="ngModel" [ngClass]="{'is-invalid':userid.invalid && (userid.dirty || userid.touched)}" required>
+          <div *ngIf="userid.invalid && (userid.dirty || userid.touched)" class="invalid-feedback">
+            <div *ngIf="userid.errors.required">User ID is required</div>
+        </div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Title</label>
-        <input type="text" class="form-control" id="title" [(ngModel)]="todolist.title" placeholder="Enter Title"
-          [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control" name="title" id="title" [(ngModel)]="todolist.title" placeholder="Enter Title"
+           #title="ngModel" [ngClass]="{'is-invalid':title.invalid && (title.dirty || title.touched)}" required>
+          <div *ngIf="title.invalid && (title.dirty || title.touched) && title.invalid" class="invalid-feedback">
+            <div *ngIf="title.errors.required">Title is required</div>
+          </div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Body</label>
-        <input type="text" class="form-control" id="body" [(ngModel)]="todolist.body" placeholder="Enter Body"
-          [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control" name="body" id="body" [(ngModel)]="todolist.body" placeholder="Enter Body"
+          #body="ngModel" [ngClass]="{'is-invalid':body.invalid && (body.dirty || body.touched)}" required>
+          <div *ngIf="body.invalid && (body.dirty || body.touched)" class="invalid-feedback">
+            <div *ngIf="body.errors.required">Body is required</div>
+          </div>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" [disabled]="ff.invalid">Submit</button>&nbsp;&nbsp;
         <button type="reset" class="btn btn-danger">Reset</button>
       </div>
     </form>
