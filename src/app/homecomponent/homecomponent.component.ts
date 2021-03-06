@@ -25,8 +25,8 @@ export class HomecomponentComponent implements OnInit {
 
   }
 
-  onTodoFormSubmit(){
-    this.todoService.submitToDoList(this.todolist).subscribe(
+  onTodoFormSubmit(formdata){
+    this.todoService.submitToDoList(formdata).subscribe(
       (data)=>{
         this.successMessage='Data Saved Successfully!!';
         this.resetData();

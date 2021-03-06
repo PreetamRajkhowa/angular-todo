@@ -4,7 +4,7 @@
     <p *ngIf="successMessage">{{successMessage}}</p>
   </div>
   <div class="card card-body bg-light">
-    <form name="form" #ff="ngForm" (ngSubmit)="onTodoFormSubmit()" novalidate>
+    <form name="form" #ff="ngForm" (ngSubmit)="onTodoFormSubmit(todolist)" novalidate>
       <div class="form-group">
         <label for="exampleInputEmail1">User ID</label>
         <input type="text" class="form-control" name="userid" id="userid" [(ngModel)]="todolist.userid" aria-describedby="emailHelp"
@@ -30,7 +30,7 @@
           </div>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary" [disabled]="ff.invalid">Submit</button>&nbsp;&nbsp;
+        <button type="button"  class="btn btn-primary" [disabled]="ff.invalid">Submit</button>&nbsp;&nbsp;
         <button type="reset" class="btn btn-danger">Reset</button>
       </div>
     </form>
