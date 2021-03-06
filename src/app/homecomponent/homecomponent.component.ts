@@ -1,5 +1,7 @@
-import { Component, ModuleWithComponentFactories, OnInit } from '@angular/core';
+import { TodoserviceService } from './../core/services/todoservice.service';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from './../core/models/Todo.model';
+
 
 
 @Component({
@@ -10,12 +12,13 @@ import { Todo } from './../core/models/Todo.model';
 export class HomecomponentComponent implements OnInit {
 
   todolist: Todo;
-  todoId:number=Math.random();
-  todoName:string;
-  status:number;
+  userid: number;
+  title:string;
+  body:string;
+  successMessage:string;
 
-  constructor() {
-    this.todolist=new Todo(this.todoId,this.todoName,this.status);
+  constructor(private todoService: TodoserviceService) {
+    this.todolist=new Todo(this.userid,this.title,this.body);
   }
 
   ngOnInit(): void {
@@ -23,7 +26,17 @@ export class HomecomponentComponent implements OnInit {
   }
 
   onTodoFormSubmit(){
-    console.log(this.todolist);
-  }
+    this.todoService.submitToDoList(this.todolist).subscribe(
+      (data)=>{
+        this.successMessage='Data Saved Successfully!!';
+        this.resetData();
+      }
+    );
+
+  };
+
+  resetData(){
+    this.todolist=new Todo(this.userid,this.title,this.body);
+  };
 
 }

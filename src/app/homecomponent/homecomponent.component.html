@@ -1,16 +1,29 @@
 <div class="container">
-  <br/>
+  <br />
+  <div>
+    <p *ngIf="successMessage">{{successMessage}}</p>
+  </div>
   <div class="card card-body bg-light">
     <form (ngSubmit)="onTodoFormSubmit()">
       <div class="form-group">
-        <label for="exampleInputEmail1">Todo Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="todolist.todoName" aria-describedby="emailHelp" placeholder="Enter Todo Name" [ngModelOptions]="{standalone: true}">
+        <label for="exampleInputEmail1">User ID</label>
+        <input type="text" class="form-control" id="userid" [(ngModel)]="todolist.userid" aria-describedby="emailHelp"
+          placeholder="Enter User ID" [ngModelOptions]="{standalone: true}">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Status</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="todolist.status" placeholder="Status" [ngModelOptions]="{standalone: true}">
+        <label for="exampleInputPassword1">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="todolist.title" placeholder="Enter Title"
+          [ngModelOptions]="{standalone: true}">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Body</label>
+        <input type="text" class="form-control" id="body" [(ngModel)]="todolist.body" placeholder="Enter Body"
+          [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+        <button type="reset" class="btn btn-danger">Reset</button>
+      </div>
     </form>
   </div>
 </div>

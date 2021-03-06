@@ -1,12 +1,12 @@
 export class Todo{
-  public id:number;
-  public todoName: string;
-  public status: number;
+  public userid:number;
+  public title: string;
+  public body: string;
 
-  constructor(id:number,todoName:string,status:number){
-    this.id=id;
-    this.todoName=todoName;
-    this.status=status;
+  constructor(userid:number,title:string,body:string){
+    this.userid=userid;
+    this.title=title;
+    this.body=body;
   }
 
 

@@ -1,3 +1,7 @@
 .card-body{
   width: 50%;
 }
+p{
+  color: rgb(1, 41, 16);
+  font-weight: 700;
+}
