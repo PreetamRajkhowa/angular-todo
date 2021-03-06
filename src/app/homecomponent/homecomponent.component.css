@@ -5,3 +5,8 @@ p{
   color: rgb(1, 41, 16);
   font-weight: 700;
 }
+
+.anc{
+  color: #1B7DF8;
+  cursor:pointer;
+}

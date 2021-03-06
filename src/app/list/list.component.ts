@@ -1,5 +1,10 @@
-import { TodoserviceService } from './../core/services/todoservice.service';
-import { Component, OnInit } from '@angular/core';
+import {
+  TodoserviceService
+} from './../core/services/todoservice.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 
 @Component({
@@ -9,22 +14,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
- todoList:any;
- isLoading:boolean;
+  todoList: any;
+  isLoading: boolean;
 
   constructor(private Todoservice: TodoserviceService) {
     this.getToDoList();
-   }
-
-  ngOnInit(): void {
-    this.isLoading=true;
   }
 
-  getToDoList(){
+  ngOnInit(): void {
+    this.isLoading = true;
+  }
+
+  getToDoList() {
     this.Todoservice.getToDolist().subscribe(
-      (data)=>{
-        this.isLoading=false;
-        this.todoList=data;
+      (data) => {
+        this.isLoading = false;
+        this.todoList = data;
       }
     );
 
