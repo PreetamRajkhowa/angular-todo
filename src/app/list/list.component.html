@@ -1,1 +1,18 @@
-<p>list works!</p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Todo Title</th>
+      <th scope="col">Todo Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let res of todoList">
+      <th scope="row">{{res.id}}</th>
+      <td>{{res.userid}}</td>
+      <td>{{res.title}}</td>
+      <td>{{res.body}}</td>
+    </tr>
+  </tbody>
+</table>

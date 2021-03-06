@@ -13,12 +13,12 @@ export class TodoserviceService {
 
   constructor(private http: HttpClient) { }
 
-  getToDolist(){
-
+  getToDolist(): Observable<Todo>{
+    return this.http.get<Todo>(this.apiUrl+'/posts');
   }
 
   submitToDoList(postdata: Todo) : Observable<Todo>{
-    return this.http.post<Todo>(this.apiUrl+'/posts',postdata)
+    return this.http.post<Todo>(this.apiUrl+'/posts',postdata);
 
   }
 }
